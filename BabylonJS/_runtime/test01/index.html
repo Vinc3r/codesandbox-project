@@ -1,9 +1,8 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-
-<head>
+  <head>
     <title>Default BabylonJS _runtime page</title>
-    <meta charset="utf-8">
+    <meta charset="utf-8" />
 
     <!-- BabylonJS -->
     <script src="https://cdn.babylonjs.com/babylon.js"></script>
@@ -16,46 +15,39 @@
     <script src="https://cdn.babylonjs.com/serializers/babylonjs.serializers.min.js"></script>
 
     <!-- _runtime -->
-    <script src="https://unpkg.com/babylon-runtime@latest/dist/_r.min.js"></script>
+    <script src="https://unpkg.com/babylon-runtime@latest/_r.min.js"></script>
 
     <style>
-        html,
-        body {
-            overflow: hidden;
-            width: 100%;
-            height: 100%;
-            margin: 0;
-            padding: 0;
-        }
+      html,
+      body {
+        overflow: hidden;
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
 
-        #canvas {
-            width: 100%;
-            height: 100%;
-            touch-action: none;
-        }
+      #canvas {
+        width: 100%;
+        height: 100%;
+        touch-action: none;
+      }
     </style>
-</head>
+  </head>
 
-<body>
+  <body>
     <script type="text/javascript">
-        _r.launch({
-            scene: "https://models.babylonjs.com/CornellBox/cornellBox.glb",
-            activeCamera: function () {
-                var camera = new BABYLON.UniversalCamera(
-                    "camera",
-                    new BABYLON.Vector3(0, 1.5, 6),
-                    _r.scene);
-                camera.rotation.y += Math.PI;
-                return camera;
-            },
-            beforeFirstRender: function () {
-                _r.scene.createDefaultEnvironment({
-                    createGround: false,
-                    createSkybox: false
-                })
-            }
-        });
+      _r.launch({
+        scene: "https://models.babylonjs.com/CornellBox/cornellBox.glb",
+        activeCamera: "Camera",
+        patch: ["test.patch", "patches/test2.patch"],
+        beforeFirstRender: function() {
+          _r.scene.createDefaultEnvironment({
+            createGround: false,
+            createSkybox: false
+          });
+        }
+      });
     </script>
-</body>
-
+  </body>
 </html>
