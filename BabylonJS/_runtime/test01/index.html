@@ -40,6 +40,7 @@
       _r.launch({
         scene: "https://models.babylonjs.com/CornellBox/cornellBox.glb",
         activeCamera: "Camera",
+        patch: ["test.patch", "patches/test2.patch"],
         beforeFirstRender: function() {
           _r.scene.createDefaultEnvironment({
             createGround: false,
