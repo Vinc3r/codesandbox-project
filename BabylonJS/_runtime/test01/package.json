@@ -10,7 +10,11 @@
     "type": "git",
     "url": "git+https://github.com/codesandbox-app/static-template.git"
   },
-  "keywords": [],
+  "keywords": [
+    "template",
+    "codesandbox",
+    "static"
+  ],
   "author": "Ives van Hoorne",
   "license": "MIT",
   "bugs": {
