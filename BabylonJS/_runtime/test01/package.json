@@ -1,7 +1,7 @@
 {
-  "name": "test01",
+  "name": "testing-relative-links-from-github",
   "version": "1.0.0",
-  "description": "this is a test",
+  "description": "",
   "main": "index.html",
   "scripts": {
     "start": "serve"
