@@ -1,7 +1,7 @@
 {
-  "name": "test01",
+  "name": "static",
   "version": "1.0.0",
-  "description": "this is a test",
+  "description": "This is a static template with no bundling",
   "main": "index.html",
   "scripts": {
     "start": "serve"
@@ -10,7 +10,11 @@
     "type": "git",
     "url": "git+https://github.com/codesandbox-app/static-template.git"
   },
-  "keywords": [],
+  "keywords": [
+    "template",
+    "codesandbox",
+    "static"
+  ],
   "author": "Ives van Hoorne",
   "license": "MIT",
   "bugs": {
