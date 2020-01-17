@@ -18,6 +18,9 @@
 </head>
 
 <body>
+  <div id="showLoadingScreen">loading screen: <button onclick="_r.loadingScreen.isVisible = true;">show</button><button
+      onclick="_r.loadingScreen.isVisible = false;">hide</button></div>
+
   <script type="text/javascript">
     _r.loadingScreen.iframe("loadingscreen/loadingscreen.html");
     _r.launch({
@@ -25,8 +28,8 @@
       patch: ["assets/patch.patch"],
       activeCamera: "arcRotateCamera",
       progress: function (evt) {
-          var progress = parseInt(Math.abs((100 * evt.loaded) / evt.total));
-          _r.loadingScreen.progress = progress;
+        var progress = parseInt(Math.abs((100 * evt.loaded) / evt.total));
+        _r.loadingScreen.progress = progress;
       }
     });
   </script>
