@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>custom BJS loading screen</title>
+  <meta charset="utf-8" />
+
+  <!-- BabylonJS -->
+  <script src="https://cdn.babylonjs.com/babylon.js"></script>
+  <script src="https://cdn.babylonjs.com/inspector/babylon.inspector.bundle.js"></script>
+  <script src="https://cdn.babylonjs.com/loaders/babylonjs.loaders.min.js"></script>
+
+  <!-- _runtime -->
+  <script src="https://unpkg.com/babylon-runtime@latest/_r.min.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="index.css" />
+  <link rel="stylesheet" type="text/css" href="loadingscreen/loadingscreen.css" />
+</head>
+
+<body>
+  <script type="text/javascript">
+    _r.loadingScreen.iframe("loadingscreen/loadingscreen.html");
+    _r.launch({
+      scene: "assets/dragon.glb",
+      patch: ["assets/patch.patch"],
+      activeCamera: "arcRotateCamera",
+      progress: function (evt) {
+          var progress = parseInt(Math.abs((100 * evt.loaded) / evt.total));
+          _r.loadingScreen.progress = progress;
+      }
+    });
+  </script>
+</body>
+
+</html>

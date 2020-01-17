@@ -1,0 +1,23 @@
+[{
+        "exec": function () {
+            var arcRotateCamera = new BABYLON.ArcRotateCamera("arcRotateCamera", 1, 1, 1, BABYLON.Vector3.Zero(), _r.scene);
+            arcRotateCamera.setTarget(new BABYLON.Vector3(0, 0.05, 0));
+            _r.scene.createDefaultEnvironment({
+                createGround: true,
+                createSkybox: false
+            });
+        }
+    },
+    {
+        "arcRotateCamera": {
+            minZ: 0.01,
+            wheelPrecision: 500,
+            radius: 0.5
+        }
+    },
+    {
+        "*:material": {
+            roughness: 0.2
+        }
+    }
+]
