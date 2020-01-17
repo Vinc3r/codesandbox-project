@@ -44,7 +44,7 @@
     overflow: hidden;
 }
 
-#showLoadingScreen {
+#top-menu {
     position: absolute;
     z-index: 9999;
     text-align: center;
