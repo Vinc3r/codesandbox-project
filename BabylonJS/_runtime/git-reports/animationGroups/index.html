@@ -51,12 +51,7 @@
         });
         _r.ready(function(){
             _r.scene.animationGroups.forEach(function (animGp) {
-                // https://doc.babylonjs.com/api/classes/babylon.animationgroup
-                console.log("animgGp ", animGp.name, animGp.isStarted)
-                animGp.animatables.forEach(function (animtb) {
-                    // https://doc.babylonjs.com/api/classes/babylon.animatable
-                    console.log("animtb ", animtb.animationStarted)
-                });
+                animGp.play(true)
             });
         });
     </script>
