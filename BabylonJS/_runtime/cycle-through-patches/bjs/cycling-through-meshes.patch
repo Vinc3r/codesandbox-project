@@ -3,26 +3,30 @@
         material: {
             // case: 1 mesh = 1 material
             "albedoTexture": function (var1, var2, var3) {
-                // we're able to get current mesh here
-                console.log("--- material level ---");
-                console.log(var1.name + " (" + var1.getClassName() + ")"); // here we get the mesh name
-                console.log(var2.name + " (" + var2.getClassName() + ")"); // and the main material
-                console.log(var3);
+                // here, it works
 
                 return _r.load.texture("assets/checker.jpg");
             },
             subMaterials: {
                 // case: 1 mesh could have more than 1 material
                 "*": {
-                    "albedoTexture": function (subVar1, subVar2, subVar3) {
-                        if (subVar1) {
-                            // we're NOT able to get current mesh here
-                            console.log("+++ subMaterial level +++");
-                            console.log(subVar1.name + " (" + subVar1.getClassName() + ")"); // here we get the current subMaterial name
-                            console.log(subVar2); // here we should get the mesh name
+                    "albedoTexture": function (subVar1, subVar2, subVar3, subVar4) {
+                        console.log("+++ subMaterial level +++");
+                        console.log(subVar1.name + " (" + subVar1.getClassName() + ")"); // mesh received: OK
+                        console.log(subVar2.name + " (" + subVar2.getClassName() + ")"); // multimat received: OK
+                        console.log(subVar3); // subMaterials array: maybe OK? but as we're in albedoTexture, we should cycle at material level
+                        console.log(subVar4); // undefined
 
-                            return _r.load.texture("assets/checker.jpg");
-                        }
+                        console.log("++++++ subVar3 forEach: ");
+                        subVar3.forEach(function (mtl) {
+                            console.log("   " + mtl.name);
+                            // this is to see the final visual result to get (via line 29):
+                            _r.load.texture("assets/checker.jpg").then(function (texture) {
+                                mtl.albedoTexture = texture;
+                            });
+                        });
+
+                        // return _r.load.texture("assets/checker.jpg");
                     }
                 }
             }
